@@ -1,5 +1,5 @@
 package com.bridgelabz.cabinvoice;
-//Step 1
+//Step 2
 public class CabInvoiceGenerator {
 	public static final int MINIMUM_COST_PER_KM=10;
 	public static final int COST_PER_TIME=1;
@@ -11,4 +11,11 @@ public class CabInvoiceGenerator {
 		}
 		return totalFare;
 	}
+	public double calculateFare(Ride[] rides) {
+		double totalFare=0;
+		for(Ride ride:rides) {
+			totalFare+=this.calculateFare(ride.distance,ride.time);
+		}
+		return totalFare;
+	}	
 }
